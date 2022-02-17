@@ -39,7 +39,7 @@ void destroy()
 	cout<<4<<endl;
 
 }
-void display()
+void display_tree()
 {
 	cout<<5<<endl;
 	
@@ -86,7 +86,7 @@ int main()
 				break;
 
 			case 5:
-				display();
+				display_tree();
 				break;
 
 			case 6:
