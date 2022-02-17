@@ -436,12 +436,6 @@ int main()
 	cin >> n;
 	while (1)
 	{
-#ifdef WINDOWS
-		system("cls");
-#endif // WINDOWS
-#ifdef LINUX
-		system("clear");
-#endif // LINUX
 		cout << "\n\n\n\tFamily tree no = " << n << "\n\n\t1. Add new person\n\t2. Find relationship b/w two persons\n\t3. Search\n\t4. Destroy\n\t5. Display\n\t6. Change family tree\n\t7. Connect two family trees\n\t8. Exit\n\n\tEnter your choice = ";
 		cin >> opt;
 		cout << endl;
