@@ -19,7 +19,6 @@ using namespace std;
 // 7
 // input 7
 //output 4 2 1
-
 struct node
 {
 	char name[50];
@@ -31,7 +30,6 @@ struct node
 	node();
 	void getData();
 };
-
 node::node()
 {
 	fc = ns = NULL;
@@ -53,13 +51,13 @@ void node::getData()
 		g = 1;
 }
 
-class familyTree
+class 	familyTree//---->class
 {
 
 public:
 	node *start;
 
-	familyTree();
+	familyTree();//--->class declare func prototype
 
 	node *traverseDown(node *, char[]); // Search functions
 	node *traverseRight(node *, char[]);
@@ -76,7 +74,7 @@ public:
 	void updateX(node *, int);
 };
 
-familyTree::familyTree()
+familyTree::familyTree()//---->const
 {
 	start = NULL;
 }
