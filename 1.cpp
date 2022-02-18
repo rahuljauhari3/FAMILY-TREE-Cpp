@@ -4,7 +4,7 @@ using namespace std;
 // print all people in a specific generation -->https://www.youtube.com/watch?v=vQIiUWofWw8&list=PLfqMhTWNBTe0b2nM6JHVCnAkhQRGiZMSJ&index=95
 // nearest anster -->https://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/
 // add new member
-// find relations between 2 person
+// find relations between 2 person or geration gap b/w 2 ppl
 // display relations
 // destroy the tree
 // exit
