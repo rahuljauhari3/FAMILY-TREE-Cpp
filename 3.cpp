@@ -267,7 +267,8 @@ void familyTree::addSib(node *a, node *b)// ye func tb jb muje node me Data add 
 int main()
 {
 	familyTree f;
-	int z=1,opt,c,k;
+	char c;
+	int z=1,opt,k;
 	string s1,s2;
 	string temp;
 
