@@ -4,7 +4,7 @@ using namespace std;
 struct node{
 	string name;
 	int age,x;
-	bool g;
+	int g;
 
 	node* left;
 	node* right;
@@ -46,7 +46,7 @@ bool findPath(node *start, vector<string> &path,string per)
     path.push_back(start->name);
  
     // See if the person's name is same as start's name
-    if (strcmp((start->name),per))
+    if ((start->name).compare(per)==0)
         return true;
  
     // Check if Data is found in left or right sub-tree
@@ -68,7 +68,7 @@ string familyTree::findLCSuccessor(node *start,string per1,string per2)
  
     // Find paths from start to per1 and start to per2.If either per1 or per2 is not present, return -1
     if ( !findPath(start, path1,per1) || !findPath(start, path2,per2))
-          return -1;
+          return NULL;
  
     /* Compare the paths to get the first different value */
     int i;
@@ -111,9 +111,9 @@ void familyTree::destroy(node *ptr)
 void familyTree::show(node *ptr)
 {
 	string gender;
-	strcpy(gender, "Female");
+	gender= "Female";
 	if (ptr->g)
-		strcpy(gender, "Male");
+		gender= "Male";
 	cout << "\n\nName: " << ptr->name << endl;
 	cout << "Age: " << ptr->age << endl;
 	cout << "Gender: " << gender << endl;
@@ -124,7 +124,7 @@ familyTree::familyTree()//---->const
 }
 void node::getData()
 {
-	string ch;
+	char ch;
 	cout << "\nName of the Person: ";
 	cin >> name;
 	cout << "Age of " << name << ": ";
@@ -177,7 +177,7 @@ node *familyTree::search(string s)
 
 	node *ptr = start;
 
-	if (strcmp(ptr->name, s) == 0)
+	if ((ptr->name).compare(s) == 0)
 		return ptr;
 	else if (traverseRight(start, s) != NULL)
 		return traverseRight(start, s);
@@ -199,7 +199,7 @@ node *familyTree::traverseDown(node *ptr, string s)// ye mai tb use karunga tb m
 
 	while (ptr != NULL)
 	{
-		if (strcmp(ptr->name, s) == 0)
+		if ((ptr->name).compare(s) == 0)
 			return ptr;
 		else if (traverseRight(ptr, s) != NULL)
 			return traverseRight(ptr, s);
@@ -218,7 +218,7 @@ node *familyTree::traverseRight(node *ptr, string s)
 
 	while (ptr != NULL)
 	{
-		if (strcmp(ptr->name, s) == 0)
+		if ((ptr->name).compare(s) == 0)
 			return ptr;
 		else if (traverseDown(ptr, s) != NULL)
 			return traverseDown(ptr, s);
@@ -258,6 +258,8 @@ int main()
 	familyTree f;
 	int z=1,opt,c,k;
 	string s1,s2;
+	string temp;
+
 	while(z==1)
 	{
 		cout<<"\n\n\t1. addNew\n\t2. show\n\t3. delete\n\t4. print all ppl in kth gen\n\t5.findLCSuccessor\n\t7. exit"<<endl;
@@ -269,10 +271,9 @@ int main()
 				f.addNew();
 				break;
 			case 2:
-				string name2;
 				cout<<"Enter name of person to show info: ";
-				cin>>name2;
-				f.show(f.search(name2));
+				cin>>temp;
+				f.show(f.search(temp));
 				break;
 			case 3:
 				f.destroy(f.start);
@@ -289,6 +290,7 @@ int main()
 				cout<<"Enter name 2";
 				cin>>s2;
 				f.findLCSuccessor(f.start,s1,s2);
+				break;
 			case 7:
 				z=0;
 				return 0;
