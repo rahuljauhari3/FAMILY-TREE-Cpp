@@ -71,10 +71,21 @@ string familyTree::findLCSuccessor(node *start,string per1,string per2)
           return NULL;
  
     /* Compare the paths to get the first different value */
-    int i;
-    for (i = 0; i < path1.size() && i < path2.size() ; i++)
-        if (path1[i] != path2[i])
-            break;
+      int flag=0,i=0;
+    for ( i = 0; i < path1.size(); i++)
+    {
+    	for (int j=0; j < path2.size() ;j++)
+    	{
+        	if (path1[i] != path2[j])
+            	{
+            		flag=1;
+            		break;
+            	}
+    	}
+    	if (flag==1){
+    		break;
+    	}
+    }
     return path1[i-1];
 }
 void familyTree::printKDistant(node *start , int k)
