@@ -35,7 +35,41 @@ public:
 	void show(node *);	  // Function to show details of particular person
 	void printKDistant(node * , int );
 	string findLCSuccessor(node*,string,string);
+	void print2DUtil(node*, int);
+	void print2D(node *);
+	void parentofnode(string);
+
 };
+void familyTree::print2DUtil(node *root, int space)
+{
+    int count=5;
+    // Base case
+    if (root == NULL)
+        return;
+ 
+    // Increase distance between levels
+    space +=count;
+ 
+    // Process right child first
+    print2DUtil(root->right, space);
+ 
+    // Print current node after space
+    // count
+    cout<<endl;
+    for (int i =count; i < space; i++)
+        cout<<" ";
+    cout<<root->name<<"\n";
+ 
+    // Process left child
+    print2DUtil(root->left, space);
+}
+ 
+// Wrapper over print2DUtil()
+void familyTree::print2D(node *start)
+{
+    // Pass initial space count as 0
+    print2DUtil(start, 0);
+}
 bool findPath(node *start, vector<string> &path,string per)
 {
     // base case
@@ -238,7 +272,26 @@ node *familyTree::traverseRight(node *ptr, string s)
 	}
 	return NULL;
 }
-
+void familyTree::parentofnode(string a)
+{
+	node *ptr;
+	ptr=search(a);
+	cout<<"Print mom or dad"<<endl;
+	cout<<"1. Mom\n2.dad"<<endl;
+	int opt;
+	cout<<"Enter 1 or 2";
+	cin>>opt;
+	switch(opt){
+		case 1:
+		ptr=ptr->left;
+		cout<<ptr->name<<endl;
+		break;
+		case 2:
+		ptr=ptr->right;
+		cout<<ptr->name<<endl;
+		break;
+	}
+}
 
 void familyTree::addChild(node *a, node *b)
 {
@@ -270,11 +323,11 @@ int main()
 	char c;
 	int z=1,opt,k;
 	string s1,s2;
-	string temp;
+	string temp,str;
 
 	while(z==1)
 	{
-		cout<<"\n\n\t1. addNew\n\t2. show\n\t3. delete\n\t4. print all ppl in kth gen\n\t5.findLCSuccessor\n\t7. exit"<<endl;
+		cout<<"\n\n\t1. addNew\n\t2. show\n\t3. delete\n\t4. print all ppl in kth gen\n\t5.findLCSuccessor\n\t6.\n\t7. parentofnode\n\t8. exit"<<endl;
 		cout<<"Enter no";
 		cin>>opt;
 		switch(opt)
@@ -303,7 +356,15 @@ int main()
 				cin>>s2;
 				f.findLCSuccessor(f.start,s1,s2);
 				break;
+			case 6:
+				f.print2D(f.start);
+				break;
 			case 7:
+				cout<<"Enter name of person";
+				cin>>str;
+				f.parentofnode(str);
+				break;
+			case 8:
 				z=0;
 				return 0;
 
