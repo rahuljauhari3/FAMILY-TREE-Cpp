@@ -22,6 +22,15 @@ To compile and run the program, you need a C++ compiler installed on your system
    ```
    ./family_tree
    ```
+Output
+
+<img width="481" alt="image" src="https://github.com/rahuljauhari3/Family-Tree-Management-System/assets/76107601/f074fbf4-41c4-4777-913b-562662165cfe">
+<img width="631" alt="image" src="https://github.com/rahuljauhari3/Family-Tree-Management-System/assets/76107601/76219d09-f4b0-4352-87a1-ec1cdaaff189">
+<img width="511" alt="image" src="https://github.com/rahuljauhari3/Family-Tree-Management-System/assets/76107601/4c4b74b6-4893-4d33-9d33-c1c459d1f637">
+
+
+
+
 
 ## Features
 
